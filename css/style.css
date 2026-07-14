@@ -178,3 +178,17 @@ body {
     opacity: 0;
   }
 }
+
+.ambient-heart {
+  position: absolute;
+  bottom: -40px;
+  opacity: 0.7;
+  animation: float-up linear forwards;
+}
+
+@keyframes float-up {
+  to {
+    transform: translateY(-110vh) rotate(20deg);
+    opacity: 0;
+  }
+}

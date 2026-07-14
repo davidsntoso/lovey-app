@@ -43,9 +43,21 @@ function openGift() {
   }, 1500);
 }
 
+function spawnAmbientHeart() {
+  const heart = document.createElement('span');
+  heart.className = 'ambient-heart';
+  heart.textContent = Math.random() > 0.5 ? '💕' : '🌸';
+  heart.style.left = `${Math.random() * 100}vw`;
+  heart.style.fontSize = `${1 + Math.random()}rem`;
+  heart.style.animationDuration = `${5 + Math.random() * 4}s`;
+  document.getElementById('ambient-hearts').appendChild(heart);
+  heart.addEventListener('animationend', () => heart.remove());
+}
+
 function init() {
   mountContent();
   document.getElementById('open-btn').addEventListener('click', openGift, { once: true });
+  setInterval(spawnAmbientHeart, 900);
 }
 
 init();
