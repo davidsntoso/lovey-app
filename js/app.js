@@ -11,4 +11,41 @@ function mountContent() {
   document.getElementById('bg-audio').src = content.songUrl;
 }
 
-mountContent();
+function spawnHeartBurst() {
+  const count = 24;
+  for (let i = 0; i < count; i++) {
+    const heart = document.createElement('span');
+    heart.className = 'burst-heart';
+    heart.textContent = '💗';
+    const angle = (Math.PI * 2 * i) / count;
+    const distance = 120 + Math.random() * 80;
+    heart.style.setProperty('--tx', `${Math.cos(angle) * distance}px`);
+    heart.style.setProperty('--ty', `${Math.sin(angle) * distance}px`);
+    document.body.appendChild(heart);
+    heart.addEventListener('animationend', () => heart.remove());
+  }
+}
+
+function openGift() {
+  const envelope = document.getElementById('envelope');
+  const coverScreen = document.getElementById('cover-screen');
+  const contentEl = document.getElementById('content');
+  const audio = document.getElementById('bg-audio');
+
+  envelope.classList.add('open');
+  spawnHeartBurst();
+  audio.play().catch(() => {});
+  coverScreen.classList.add('closing');
+
+  setTimeout(() => {
+    coverScreen.remove();
+    contentEl.hidden = false;
+  }, 1500);
+}
+
+function init() {
+  mountContent();
+  document.getElementById('open-btn').addEventListener('click', openGift, { once: true });
+}
+
+init();

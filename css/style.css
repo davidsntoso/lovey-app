@@ -137,3 +137,44 @@ body {
   height: 180px;
   margin-top: 0.5rem;
 }
+
+#envelope.open .envelope-flap {
+  animation: flap-open 0.6s ease forwards;
+}
+
+@keyframes flap-open {
+  to { transform: rotateX(180deg); }
+}
+
+#envelope.open .envelope-letter {
+  animation: letter-rise 0.6s ease 0.3s forwards;
+}
+
+@keyframes letter-rise {
+  to { transform: translateY(-70px); }
+}
+
+#cover-screen.closing {
+  animation: cover-fade 0.6s ease 0.9s forwards;
+}
+
+@keyframes cover-fade {
+  to { opacity: 0; visibility: hidden; }
+}
+
+.burst-heart {
+  position: fixed;
+  font-size: 1.5rem;
+  left: 50%;
+  top: 50%;
+  pointer-events: none;
+  z-index: 3;
+  animation: burst 0.9s ease-out forwards;
+}
+
+@keyframes burst {
+  to {
+    transform: translate(var(--tx), var(--ty)) scale(0.4);
+    opacity: 0;
+  }
+}
