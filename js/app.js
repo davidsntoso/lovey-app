@@ -1,5 +1,6 @@
 import content from './content.js';
 import { renderMessage, renderWishesList, renderTimeline } from './render.js';
+import { buildQrImageUrl } from './utils.js';
 
 function mountContent() {
   document.documentElement.style.setProperty('--accent', content.accentColor);
@@ -9,6 +10,9 @@ function mountContent() {
   document.getElementById('timeline').innerHTML = renderTimeline(content.timeline);
   document.getElementById('closing-message').textContent = `With all our love, ${content.senderName} 💕`;
   document.getElementById('bg-audio').src = content.songUrl;
+  const pageUrl = window.location.href.split('#')[0];
+  document.getElementById('share-link').textContent = pageUrl;
+  document.getElementById('qr-code').src = buildQrImageUrl(pageUrl);
 }
 
 function spawnHeartBurst() {
