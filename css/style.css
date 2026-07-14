@@ -28,6 +28,7 @@ body {
   position: relative;
   width: 220px;
   height: 140px;
+  perspective: 800px;
 }
 
 .envelope-back {
