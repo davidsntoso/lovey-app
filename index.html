@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lovey — A Virtual Gift For You 💌</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <audio id="bg-audio" loop preload="none"></audio>
+
+  <section id="cover-screen">
+    <div id="envelope">
+      <div class="envelope-back"></div>
+      <div class="envelope-letter"></div>
+      <div class="envelope-flap"></div>
+    </div>
+    <p id="cover-message"></p>
+    <button id="open-btn" type="button">Tap to open 💝</button>
+  </section>
+
+  <div id="ambient-hearts" aria-hidden="true"></div>
+
+  <main id="content" hidden>
+    <section id="special-words" class="content-section"></section>
+    <section id="wishes" class="content-section">
+      <h2>Wishes</h2>
+      <div id="wishes-list"></div>
+    </section>
+    <section id="journey" class="content-section">
+      <h2>Our Journey</h2>
+      <div id="timeline"></div>
+    </section>
+    <section id="closing" class="content-section">
+      <p class="closing-message" id="closing-message"></p>
+    </section>
+    <section id="share" class="content-section">
+      <p>Share this gift:</p>
+      <p id="share-link"></p>
+      <img id="qr-code" alt="QR code linking to this gift">
+      <p class="brand-footer">Made with 💌 by <strong>Lovey</strong></p>
+    </section>
+  </main>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
